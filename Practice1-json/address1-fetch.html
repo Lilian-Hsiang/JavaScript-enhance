@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Address</title>
+</head>
+
+<body>
+    <p>Taiwan City</p>
+    <table id="p">
+
+
+
+        <script>
+
+            //用fetch()
+            const addr = "address.json";
+
+            fetch(addr, { method: "GET" })
+                .then((res) => {
+                    return res.json();
+                })
+                //這一個then是要先讀取json檔案資料(res是自訂變數名稱)
+                //轉成javascript看得懂的json，才能做接下來的then
+                .then((result) => {
+                    // console.log(result);
+                    let length = result.length;
+                    // console.log(length);
+
+                    for (let i = 0; i < length; i++) {
+                        //印出result陣列裡的值
+                        // console.log(result[i].CityName);
+                        // console.log(result[i].CityEngName);
+                        console.log(result[i].AreaList);
+                        const cityname = result[i].CityName;
+                        const CityEngName = result[i].CityEngName;
+                        const AreaList = JSON.stringify(result[i].AreaList);
+
+                        document.getElementById("p").innerHTML += `<td>${cityname}</td>`;
+                        document.getElementById("p").innerHTML += `<td>${CityEngName}</td>`;
+                        document.getElementById("p").innerHTML += `<td>${AreaList}</td>`;
+
+                    }
+
+                    //印出AreaList陣列裡的RoadList陣列
+                    for (let j = 0; j < length; j++) {
+                        // 如果要印出AreaList陣列裡的所有東西就要用下面這個
+                        // result[j].AreaList.map((el) => { console.log(el.j); })
+                        result[j].AreaList.map((el) => { console.log(el.RoadList, j) });
+                        //el是代表AreaList陣列裡的東西,要印出RoadList就要用el.RoadList
+                    }
+                });
+
+
+
+
+        </script>
+</body>
+
+</html>

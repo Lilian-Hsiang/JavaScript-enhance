@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Address</title>
+    <style>
+      table,
+      tr,
+      td,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>城市名</th>
+          <th>城市英文名</th>
+        </tr>
+      </thead>
+      <tbody id="tb">
+        <tr id="tr"></tr>
+      </tbody>
+    </table>
+    <script src="address.js"></script>
+    <script>
+      // array.forEach(function(currentValue目前元素的值,index目前元素的索引,arr目前元素的陣列){...})
+      // addresses.foreach(function(value,index,array){
+      // });
+
+      //   datas.forEach(function (index) {   // array.forEach(function(currentValue目前元素的值,index目前元素的索引,arr目前元素的陣列){...})
+      //     console.log(index);
+      //   });
+      //==============================================================================
+
+      // 用 datas=>array.method()
+      const tBody = document.querySelector("#tb");
+      let webData = ""; //將設定一個變數讓資料可以在後面放進去
+      datas.forEach((item) => {
+        // 將datas所有資料設為變數item，使用箭頭函數
+        // console.log(item.AreaList[0].AreaName);
+        // console.log(item);
+
+        // item.AreaList.forEach((itemArea) => {
+        //   console.log(itemArea.AreaName); //將item裡的AreaList所有資料設為變數itemArea，再印出itemArea裡的AreaName
+        // });
+        webData += `
+        <tr>
+            <td>${item.CityName}</td>
+            <td>${item.CityEngName}</td>
+        </tr>
+        `;
+      });
+      tBody.innerHTML = webData;
+    </script>
+  </body>
+</html>

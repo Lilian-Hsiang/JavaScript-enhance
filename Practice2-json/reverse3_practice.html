@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reverse 反轉字串</title>
+  </head>
+  <body>
+    <script>
+        // const string="abcdefg";
+        let str=prompt("請輸入一段字串");
+        let str_arr=str.split(''); //先把str字串打散成陣列，才可以進行位置交換
+        console.log(str_arr);
+
+        function sort(str_arr){ //做一個function叫sort() 參數放str_arr
+          //1. 開始交換(如第一個(index=0)與最後一個交換)         
+          //2. 設一個空的變數，借放要交換的值  
+            let emp=""; 
+            let leng=str_arr.length;
+          //3. 交換是前幾個值與後幾個值做交換，因此要做迴圈的次數是count=parseInt(leng/2) //parseInt是取整數
+            let count=parseInt(leng/2);
+            // console.log(leng);
+            for(let i=0;i<count;i++){
+                emp=str_arr[i]; //先把str_arr[i]的值借放在emp裡
+                str_arr[i]=str_arr[leng-(i+1)]; //str_arr[leng-(i+1)]是一個規則，第一個值(如index=0)與最後一個值(如index=6)交換，6=7-(0+1) //將str_arr[leng-(i+1)]的值放進str[i]變數裡(交換!)(如第七個值放進第一個變數裡)
+                console.log(str_arr[leng-(i+1)]);
+                // console.log(str[i]);
+                str_arr[leng-(i+1)]=emp; //將emp裡裝的值(剛剛str_arr[i]的值)放進str_arr[leng-(i+1)]裡 //交換(如將第一個值放進最後一個的變數裡)
+            }
+            let result=str_arr.join(''); //重新把打散的陣列組成字串
+            return result; //回傳result給sort(str_arr)
+        }
+
+        console.log(sort(str_arr));
+        
+    </script>
+  </body>
+</html>

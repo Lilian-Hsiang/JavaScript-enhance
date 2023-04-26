@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Address</title>
+    <style></style>
+  </head>
+
+  <body>
+    <h3>台灣地區</h3>
+    <label for="CityName">城市名：</label>
+    <select name="CityName" id="CityName"></select>
+    <br />
+    <label for="AreaName">地區：</label>
+    <select name="AreaName" id="AreaName"></select>
+    <br />
+    <label for="RoadName">路名：</label>
+    <select name="RoadName" id="RoadName"></select>
+    <script src="address.js"></script>
+    <script>
+      //   let webData = "";
+      //   datas.forEach((ele) => {
+      //     // console.log(ele);
+      //     let tBody = document.querySelector("#tb");
+      //     webData += `
+      //     <tr>
+      //         <td>${ele.CityName}</td>
+      //         <td>${ele.CityEngName}</td>
+      //     </tr>
+      //     `;
+      //   });
+      //   document.getElementById("tb").innerHTML = webData;
+
+      //取城市的資料
+      let cityData = "";
+      datas.forEach((ele) => {
+        // console.log(ele);
+        // let CityName = document.querySelector("#CityName");
+        cityData += `<option>${ele.CityName}</option>`;
+      });
+      document.getElementById("CityName").innerHTML = cityData;
+
+      //取地區的資料
+      let areaData = "";
+      datas.forEach((item) => {
+        // console.log(item);
+        item.AreaList.forEach((itemArea) => {
+          //   console.log(itemArea.AreaName);
+          // let AreaName = document.querySelector("#AreaName");
+          areaData += `<option>${itemArea.AreaName}</option>`;
+        });
+      });
+      document.getElementById("AreaName").innerHTML = areaData;
+
+      //取路名資料
+      let RData = "";
+      datas.forEach((data) => {
+        // console.log(data);
+        data.AreaList.forEach((areaData) => {
+          //   console.log(areaData);
+          areaData.RoadList.forEach((roadData) => {
+            // console.log(roadData);
+            // console.log(roadData.RoadName);
+            // let roadName = document.querySelector("#RoadName");
+            RData += `<option>${roadData.RoadName}</option>`;
+            // console.log(RData);
+          });
+        });
+      });
+      document.getElementById("RoadName").innerHTML = RData;
+    </script>
+  </body>
+</html>

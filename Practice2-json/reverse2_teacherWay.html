@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reverse 反轉字串</title>
+  </head>
+  <body>
+    <script>
+      const str = "abcdefg";
+      //console.log(typeof str); //string
+
+      function reverse(str) {
+        let reverseStr = "";
+        //string object =>
+        for (let i = str.length - 1; i >= 0; i--) {
+          //因為陣列是從0開始所以最後一個是陣列長度-1
+          //console.log(str[i]);//不同列的單獨的g f e d c b a (跑七次)
+          //console.log(typeof str[i]); //string
+          reverseStr += str[i];
+          //console.log(typeof reverseStr); //跑7次的string
+        }
+        return reverseStr;
+      }
+      //console.log(reverse(str)); //gfedcba
+      console.log(reverse("abcdefg")); //gfedcba
+    </script>
+  </body>
+</html>
