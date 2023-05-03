@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+</head>
+<body>
+    <script>
+        function result(arr,num){
+            let leng=arr.length;
+            for(i=0;i<leng;i++){
+                for(j=i+1;j<leng;j++){
+                    console.log(arr[i],arr[j]);
+                    let ans=arr[i]+arr[j];
+                    if(ans===num){
+                        return[arr[i],arr[j]];
+                        // return[i,j];
+                    }
+                    
+                }
+            }
+        }
+        console.log(result([4,8,2,7],6));
+    </script>
+    
+</body>
+</html>

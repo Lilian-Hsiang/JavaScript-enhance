@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array & output</title>
+</head>
+<body>
+    <label for="array">請輸入一段陣列:</label>
+    <input type="text" id="array" placeholder="[4,8,2,7]" value="[4,8,2,7]">
+    <br>
+    <label for="output">請輸入此陣列的結果:</label>
+    <input type="text" id="output" placeholder="6" value="6">
+    <button type="button" id="btn">是哪個array index</button>
+    <div id="outcome"></div>
+    <script>
+        // let arr=document.querySelector("#array").value;
+        // let num=document.querySelector("#output").value;
+        // let btn=document.querySelector("#btn");
+        // let outcome=document.querySelector("#outcome").value;
+
+        let btn=document.querySelector("#btn");
+
+        btn.addEventListener("click",()=>{
+                let arr =document.querySelector("#array").value;
+                arr=arr.slice(1,-1).split(",")
+                arr = arr.map(Number)
+                console.log(arr);
+                let leng = arr.length;
+                let num= parseInt(document.querySelector("#output").value);
+                let outcome=document.querySelector("#outcome");
+                for(i=0; i<leng;i++){
+                    // console.log(i);
+                    for(j=i+1; j<leng;j++){
+                        // console.log('arr[i]:',arr[i],'arr[j]:', arr[j] );
+                        let ans = arr[i]+arr[j];
+                        // console.log('a:',typeof(ans));
+                        // console.log('n:',typeof(num));
+                        if(ans === num){
+                            outcome.innerHTML=`${i},${j}`;
+                        }
+                    }
+                }
+            }
+)
+// console.log(i,j);
+// console.log(Hey([4,8,2,7],11))
+        // let array=["4","8","2","7"];
+        // let arr=[1,2,3,4];
+        // let leng=arr.length;
+        // let num=7;
+        // array.forEach(function(item,index,array){
+        //     Item=parseInt(item);
+            // array[index]=item+item;
+            // console.log(item,index);
+            //console.log(Object.keys(array)); //會印出array的index
+            // function Hey(arr,num){
+            //     let leng = arr.length;
+            //     for(i=0; i<leng ;i++){
+            //         for(j=i+1; j<leng;j++){
+            //             console.log('arr[i]:',arr[i],'arr[j]:', arr[j] );
+            //             let ans = arr[i]+arr[j];
+            //             if(ans === num){
+            //                 return [i,j]
+            //             }
+            //         }
+            //     }
+            // }
+
+
+
+        // })
+        // function qq(array,num){
+        //     for()
+        // }
+        //
+
+        // console.log(array);
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="stone_num" placeholder="請輸入石頭數量">
+    <button id="btn">確認</button>
+    <div id="output"></div>
+    <script>
+        let stone = document.getElementById('stone_num');
+        let btn = document.getElementById('btn');
+        let output = document.getElementById('output');
+
+        btn.addEventListener('click',()=>{
+            output.innerHTML = "";
+            let total = stone.value;
+            
+            while(true){
+                let me = Math.ceil(Math.random()*3);
+                let other = Math.ceil(Math.random()*3);
+
+                if(total<4){
+                    me = total;
+                }
+
+                total -= me;
+                output.innerHTML += `我拿了${me}顆<br>`
+                output.innerHTML += `剩下${total}顆<br>`
+                if(total<=0){
+                    output.innerHTML +='我贏了!';
+                    break
+                }
+                
+                if(total<4){
+                    other = total;
+                }
+                total -= other;
+                output.innerHTML += `他拿了${other}顆<br>`
+                output.innerHTML += `剩下${total}顆<br>`
+                if(total<=0){
+                    output.innerHTML +='我輸了QQ';
+                    break
+                }
+            }
+
+
+        })
+    </script>
+</body>
+</html>

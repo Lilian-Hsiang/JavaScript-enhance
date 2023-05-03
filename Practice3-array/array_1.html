@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array & output</title>
+</head>
+<body>
+    <script>
+            function Hey(arr,num){
+                let leng = arr.length;
+                for(i=0; i<leng ;i++){
+                    for(j=i+1; j<leng;j++){
+                        console.log('arr[i]:',arr[i],'arr[j]:', arr[j] );
+                        let ans = arr[i]+arr[j];
+                        if(ans === num){
+                            return (`${i},${j}`)
+                        }
+                    }
+                }
+            }
+            console.log(Hey([4,8,2,7],6));
+            console.log(Hey([4,8,2,7],11));
+        // let array=["4","8","2","7"];
+        // let arr=[1,2,3,4];
+        // let leng=arr.length;
+        // let num=7;
+        // array.forEach(function(item,index,array){
+        //     Item=parseInt(item);
+            // array[index]=item+item;
+            // console.log(item,index);
+            //console.log(Object.keys(array)); //會印出array的index
+            // function Hey(arr,num){
+            //     let leng = arr.length;
+            //     for(i=0; i<leng ;i++){
+            //         for(j=i+1; j<leng;j++){
+            //             console.log('arr[i]:',arr[i],'arr[j]:', arr[j] );
+            //             let ans = arr[i]+arr[j];
+            //             if(ans === num){
+            //                 return [i,j]
+            //             }
+            //         }
+            //     }
+            // }
+
+
+
+        // })
+        // function qq(array,num){
+        //     for()
+        // }
+        //
+
+        // console.log(array);
+        
+
+    </script>
+</body>
+</html>
